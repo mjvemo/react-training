@@ -1,9 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -87,12 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(25, 25, 25);
 }
 
 a {
@@ -104,4 +99,119 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.button {
+  background-color: rgb(28, 28, 28);
+  color: hsl(347, 100%, 83%);
+  padding: 30px;
+  margin: 30px;
+}
+
+.bias {
+  display: flex;
+  padding-left: 30px;
+}
+
+.blink {
+  display: flex;
+  padding: 30px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: hsl(347, 100%, 83%);
+}
+
+.logo {
+  width: 800px;
+}
+
+.containerBlinks {
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+}
+
+.buttonBlink {
+  background-color: rgb(28, 28, 28);
+  color: hsl(347, 100%, 83%);
+  padding: 20px;
+  margin: 30px;
+}
+
+.buttonBlink2 {
+  background-color: rgb(28, 28, 28);
+  color: hsl(347, 100%, 83%);
+  padding: 25px;
+  width: 200px;
+  margin: 30px;
+}
+.buttonLoveLike {
+  background-color: rgb(28, 28, 28);
+  color: hsl(347, 100%, 83%);
+  padding: 20px;
+  width: 200px;
+  margin: 30px;
+}
+.tittleContainer {
+  display: flex;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.numberBlink {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.inputName {
+  padding: 15px;
+  width: 525px;
+  height: 50px;
+}
+
+.inputName:hover {
+  border-color: hsl(347, 100%, 83%);
+}
+
+.counter {
+  padding-left: 30px;
+}
+
+.generalInput {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+* p {
+  margin-left: 15px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
+}
+
+.textarea {
+  width: 525px;
+  height: 300px;
+  padding: 30px;
+}
+
+.circle {
+  background-color: lightseagreen;
+  position: absolute;
+  left: 50;
+  top: 100;
+  width: 20;
+  height: 20;
+  border-radius: 50%;
+}
+
+.insertInput {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 30px;
 }
