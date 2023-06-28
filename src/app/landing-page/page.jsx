@@ -5,6 +5,7 @@ import { Profile } from "./Profile";
 import { Toolbar } from "./Data";
 import { Form } from "./Form";
 import { Test, Delete, Transform, Insert, ShoppingCart } from "./Test";
+import { Filter } from "./Filter";
 
 export default function Page(props) {
   console.log(props);
@@ -52,6 +53,9 @@ export default function Page(props) {
       </div>
       <div>
         <ShoppingCart></ShoppingCart>
+      </div>
+      <div>
+        <Filter></Filter>
       </div>
     </div>
   );
