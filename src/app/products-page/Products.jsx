@@ -1,15 +1,12 @@
 "use client";
 import { useState } from "react";
-import { imageUrl } from "./Image";
-import styles from "../products.module.css";
+import styles from "./products.module.css";
 
 export function ProductItem({ product }) {
   const biggerThanTenGrand = product.price > 10000;
-  const [valueSale, setOnSale] = useState(product.onSale);
-
-  const onChangeSettingSale = () => {
-    setOnSale(!valueSale);
-  };
+  const valueSale = product.isOnsale;
+  const descount = product.price - (10 * product.price) / 100;
+  const finalPrice = valueSale ? descount : product.price;
 
   return (
     <div>
@@ -20,25 +17,45 @@ export function ProductItem({ product }) {
             <h1>{product.name}</h1>
           </div>
           <small>{product.category}</small>
-          <small
-            onChange={onChangeSettingSale}
-            style={{ color: !valueSale ? "red" : "black" }}
-          >
-            {product.price}
+
+          <small className={biggerThanTenGrand && styles.textRed}>
+            {finalPrice}
           </small>
 
-          <small>amount: {product.amount}</small>
+          <small>stock: {product.stock}</small>
         </div>
-        <div className={styles.saleContainer}>
-          <h3>ON SALE</h3>
-        </div>
+
+        {valueSale && (
+          <div className={styles.saleContainer}>
+            <h3>ON SALE</h3>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 export function Products({ products }) {
-  const [filter, setFilter] = useState();
+  const [nameFilter, setNameFilter] = useState("");
+
+  function handlerOnChange(input) {
+    const newValue = input.target.value;
+    setNameFilter(newValue);
+  }
+
+  let displayProduct = products;
+
+  if (nameFilter.length >= 2) {
+    displayProduct = products.filter((product) => {
+      const { name } = product;
+      const lowerFilter = nameFilter.toLowerCase();
+
+      const isSameName = name.toLowerCase().includes(lowerFilter);
+
+      return isSameName;
+    });
+  }
+
   return (
     <div>
       <div className={styles.header}>
@@ -46,20 +63,20 @@ export function Products({ products }) {
           className={styles.logo}
           src="https://1000marcas.net/wp-content/uploads/2021/05/Celine-logo.png"
         ></img>
+        <label className={styles.label}>
+          Filter by name
+          <input
+            className={styles.input}
+            placeholder="insert name"
+            type="text"
+            value={nameFilter}
+            onChange={handlerOnChange}
+          ></input>
+        </label>
       </div>
-      {products.map((product) => (
+      {displayProduct.map((product) => (
         <ProductItem key={product.id} product={product}></ProductItem>
       ))}
     </div>
   );
 }
-
-// function ProductInfo({ product }) {
-//   const showName = product.name;
-
-//   return (
-//     <div>
-//       <strong>{product.name}</strong>
-//     </div>
-//   );
-// }

@@ -5,7 +5,6 @@ import { Profile } from "./Profile";
 import { Toolbar } from "./Toolbar";
 import { Form } from "./Form";
 import { Test, Delete, Transform, Insert, ShoppingCart } from "./Test";
-import { Filter } from "../products-page/Products";
 
 export default function Page(props) {
   console.log(props);
@@ -53,9 +52,6 @@ export default function Page(props) {
       </div>
       <div>
         <ShoppingCart></ShoppingCart>
-      </div>
-      <div>
-        <Filter value="number 5"></Filter>
       </div>
     </div>
   );

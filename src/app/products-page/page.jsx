@@ -1,9 +1,9 @@
 "use client";
 import { Products } from "./Products";
 import { products as data } from "@/data/products";
-import "@/app/products.module.css";
+// import "@/app/products.module.css";
 
-export default function Page(props) {
+export default function Page() {
   return (
     <div>
       <div>
