@@ -215,3 +215,14 @@ a {
   justify-content: left;
   margin: 30px;
 }
+
+.header {
+  background-color: aliceblue;
+  color: rgb(51, 51, 51);
+  font-size: 1.5em;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1000px;
+}

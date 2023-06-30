@@ -68,7 +68,7 @@ export function Products({ products }) {
           Filter by
           <input
             className={styles.input}
-            placeholder="insert filter"
+            placeholder="insert filter by name or category"
             type="text"
             value={nameFilter}
             onChange={handlerOnChange}
