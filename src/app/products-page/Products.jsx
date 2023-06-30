@@ -47,12 +47,13 @@ export function Products({ products }) {
 
   if (nameFilter.length >= 2) {
     displayProduct = products.filter((product) => {
-      const { name } = product;
+      const { name, category } = product;
       const lowerFilter = nameFilter.toLowerCase();
 
       const isSameName = name.toLowerCase().includes(lowerFilter);
+      const isSameCategory = category.toLowerCase().includes(lowerFilter);
 
-      return isSameName;
+      return isSameName || isSameCategory;
     });
   }
 
@@ -64,10 +65,10 @@ export function Products({ products }) {
           src="https://1000marcas.net/wp-content/uploads/2021/05/Celine-logo.png"
         ></img>
         <label className={styles.label}>
-          Filter by name
+          Filter by
           <input
             className={styles.input}
-            placeholder="insert name"
+            placeholder="insert filter"
             type="text"
             value={nameFilter}
             onChange={handlerOnChange}
