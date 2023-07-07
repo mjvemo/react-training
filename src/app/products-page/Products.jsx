@@ -75,6 +75,7 @@ export function Products({ products }) {
           ></input>
         </label>
       </div>
+      <div></div>
       {displayProduct.map((product) => (
         <ProductItem key={product.id} product={product}></ProductItem>
       ))}

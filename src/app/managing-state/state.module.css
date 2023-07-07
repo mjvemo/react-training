@@ -8,3 +8,6 @@
   align-items: center;
   gap: 1000px;
 }
+.error {
+  color: red;
+}
