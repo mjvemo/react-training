@@ -143,3 +143,145 @@ x;
 // Preserving and Resetting State
 // https://www.youtube.com/watch?v=9HYKSaorqHc
 // https://www.youtube.com/watch?v=A5MNjgm_Ovc
+
+// Challenge 1 of 5: Fix disappearing input text
+
+// function Form() {
+//   const [text, setText] = useState("");
+//   return <textarea value={text} onChange={(e) => setText(e.target.value)} />;
+// }
+
+// export default function App() {
+//   const [showHint, setShowHint] = useState(false);
+//   return (
+//     <div>
+//       {showHint && (
+//         <p>
+//           <i>Hint: Your favorite city?</i>
+//         </p>
+//       )}
+//       <Form />
+//       {showHint ? (
+//         <button
+//           onClick={() => {
+//             setShowHint(false);
+//           }}
+//         >
+//           Hide hint
+//         </button>
+//       ) : (
+//         <button
+//           onClick={() => {
+//             setShowHint(true);
+//           }}
+//         >
+//           Show hint
+//         </button>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default function App() {
+//   const [showHint, setShowHint] = useState(false);
+//   return (
+//     <div>
+//       {showHint && (
+//         <p>
+//           <i>Hint: Your favorite city?</i>
+//         </p>
+//       )}
+//       <Form />
+//         <button
+//           onClick={() => {
+//             setShowHint(!showHint);
+//           }}
+//         >
+//          {showHint ? 'Hide' : 'Show'} hint
+//         </button>
+//     </div>
+//   );
+// }
+
+// Challenge 2 of 5: Swap two form fields
+
+// if (reverse) {
+//   return (
+//     <>
+//       <Field key="last" label="Last name" />
+//       <Field key="first" label="First name" />
+//       {checkbox}
+//     </>
+//   );
+// } else {
+//   return (
+//     <>
+//       <Field key="first" label="First name" />
+//       <Field key="last" label="Last name" />
+//       {checkbox}
+//     </>
+//   );
+// }
+
+// Challenge 3 of 5: Reset a detail form
+// added key={selectedId} to editContact
+//   return (
+//     <div>
+//       <ContactList
+//         contacts={contacts}
+//         selectedId={selectedId}
+//         onSelect={id => setSelectedId(id)}
+//       />
+//       <hr />
+//       <EditContact
+//         key={selectedId}
+//         initialData={selectedContact}
+//         onSave={handleSave}
+//       />
+//     </div>
+//   )
+// }
+
+// Challenge 4 of 5: Clear an image while it’s loading
+// added a key to the img tag
+
+//   return (
+//     <>
+//       <button onClick={handleClick}>
+//         Next
+//       </button>
+//       <h3>
+//         Image {index + 1} of {images.length}
+//       </h3>
+//       <img key='image' src={image.src} />
+//       <p>
+//         {image.place}
+//       </p>
+//     </>
+//   );
+// }
+
+// Challenge 5 of 5: Fix misplaced state in the list
+// changed the key={i} to key={contact.id}
+
+//   return (
+//     <>
+//       <label>
+//         <input
+//           type="checkbox"
+//           value={reverse}
+//           onChange={e => {
+//             setReverse(e.target.checked)
+//           }}
+//         />{' '}
+//         Show in reverse order
+//       </label>
+//       <ul>
+//         {displayedContacts.map((contact, i) =>
+//           <li key={contact.id}>
+//             <Contact contact={contact} />
+//           </li>
+//         )}
+//       </ul>
+//     </>
+//   );

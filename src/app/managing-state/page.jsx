@@ -36,7 +36,8 @@ export default function Page() {
     <div>
       {/* <State></State> */}
       <div>
-        <h1>Hello Wolrd!</h1>xs
+        <h1>Hello People!</h1>
+        <h3>THIS IS A REACT DOCUMENTATION PRACTICE</h3>
         <div>
           <br />
           <CompA name={name} onClick={handlerOnClick} />
@@ -44,6 +45,9 @@ export default function Page() {
         <br />
         <div>
           <CompB name={name} onClick={handlerOnClick} />
+        </div>
+        <div>
+          <State></State>
         </div>
       </div>
     </div>
