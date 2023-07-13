@@ -182,6 +182,7 @@ x;
 //   );
 // }
 
+// Option 2
 // export default function App() {
 //   const [showHint, setShowHint] = useState(false);
 //   return (
@@ -285,3 +286,60 @@ x;
 //       </ul>
 //     </>
 //   );
+
+// Extracting State Logic into a Reducer
+// you can put all the states and event handlers into a function called reducer
+
+// Step 1: Move from setting state to dispatching actions {https://react.dev/learn/extracting-state-logic-into-a-reducer#step-1-move-from-setting-state-to-dispatching-actions}
+
+// Step 2: Write a reducer function
+// {https://react.dev/learn/extracting-state-logic-into-a-reducer#step-2-write-a-reducer-function}
+
+// Step 3: Use the reducer from your component
+// {https://react.dev/learn/extracting-state-logic-into-a-reducer#step-3-use-the-reducer-from-your-component}
+
+// To convert from useState to useReducer:
+// - Dispatch actions from event handlers.
+// - Write a reducer function that returns the next state for a given state and action.
+// - Replace useState with useReducer.
+// Reducers require you to write a bit more code, but they help with debugging and testing.
+// - Reducers must be pure.
+// - Each action describes a single user interaction.
+// - Use Immer if you want to write reducers in a mutating style.
+
+// Challenge 1 of 4: Dispatch actions from event handlers
+// {https://react.dev/learn/extracting-state-logic-into-a-reducer#dispatch-actions-from-event-handlers}
+
+// Chat.js
+//    dispatch({
+//             type: 'edited_message',
+//             message: contact.message
+
+// Challenge 2 of 4: Clear the input on sending a message
+
+// messengerReducer.js
+//  case 'sent_message': {
+//       return {
+//         ...state,
+//         message: '',
+//       };
+
+// Chat.js
+//    <button
+//    onClick={() => {
+//      alert(`Sending "${message}" to ${contact.email}`)
+//             dispatch({
+//               type: 'sent_message',
+//             });
+//      }}
+//     >Send to {contact.email}</button>
+
+// Challenge 3 of 4: Restore input values when switching between tabs
+// {https://react.dev/learn/extracting-state-logic-into-a-reducer#restore-input-values-when-switching-between-tabs}
+
+// Try to solve it again
+
+// Challenge 4 of 4: Implement useReducer from scratch
+// {https://react.dev/learn/extracting-state-logic-into-a-reducer#implement-usereducer-from-scratch}
+
+// Try it again
