@@ -6,7 +6,7 @@ import { addMember, deleteMember } from "./actions";
 
 export default function Page() {
   const [state, dispatch] = useReducer(reducer, {
-    members: [],
+    people: [],
   });
 
   const [name, setName] = useState("");
