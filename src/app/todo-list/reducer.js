@@ -57,6 +57,34 @@ function toggleTaskReducer(state, action) {
   };
 }
 
+function allCompletedTaskReducer(state) {
+  return {
+    ...state,
+    tasks: state.tasks.map((task) => {
+      return { ...task, isCompleted: true };
+    }),
+  };
+}
+
+function allPendingTaskReducer(state) {
+  return {
+    ...state,
+    tasks: state.tasks.map((task) => {
+      return {
+        ...task,
+        isCompleted: false,
+      };
+    }),
+  };
+}
+
+function deleteAll(state) {
+  return {
+    ...state,
+    tasks: [],
+  };
+}
+
 export function reducer(state, action) {
   switch (action.type) {
     case ActionType.ADD_TASK:
@@ -67,6 +95,12 @@ export function reducer(state, action) {
       return deleteTaskReducer(state, action);
     case ActionType.TOGGLE_TASK:
       return toggleTaskReducer(state, action);
+    case ActionType.ALLCOMPLETED_TASK:
+      return allCompletedTaskReducer(state);
+    case ActionType.ALLPENDING_TASK:
+      return allPendingTaskReducer(state);
+    case ActionType.DELETEALL:
+      return deleteAll(state);
     default:
       return state;
   }

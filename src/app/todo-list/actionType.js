@@ -4,4 +4,7 @@ export const ActionType = {
   DELETE_TASK: "deleteTask",
   EDIT_TASK: "editTask",
   TOGGLE_TASK: "toggleTask",
+  ALLCOMPLETED_TASK: "allCompletedTask",
+  ALLPENDING_TASK: "allPendingTask",
+  DELETEALL: "deleteAll",
 };

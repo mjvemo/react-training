@@ -3,7 +3,12 @@
 "use client";
 
 import { useReducer, useState } from "react";
-import { addTask } from "./actions";
+import {
+  addTask,
+  allCompletedTask,
+  allPendingTask,
+  deleteAll,
+} from "./actions";
 import { reducer } from "./reducer";
 import { TodoItem } from "./TodoItem";
 
@@ -16,9 +21,9 @@ import { TodoItem } from "./TodoItem";
  */
 
 // const fakeState = {
-//   items: [{
+//   tasks: [{
 //     id: '',
-//     task: '',
+//     description: '',
 //     isCompleted: true, // :boolean
 //   }]
 // }
@@ -28,6 +33,8 @@ export function TodoList() {
   // renderizar la lista
   const [state, dispatch] = useReducer(reducer, { tasks: [] });
   const [description, setDescription] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
+  const [isPending, setIsPending] = useState([]);
 
   function handleOnChangeDescription(input) {
     const { value } = input.target;
@@ -38,6 +45,28 @@ export function TodoList() {
     dispatch(addTask({ description }));
     setDescription("");
   }
+
+  function handleOnClickAllCompleted() {
+    dispatch(allCompletedTask());
+  }
+
+  function handleOnClickAllPending() {
+    dispatch(allPendingTask());
+  }
+
+  function handleOnClickDeleteAll() {
+    dispatch(deleteAll());
+  }
+
+  function handleOnClickHideShow() {
+    setIsOpen(!isOpen);
+  }
+
+  const tasks = isOpen
+    ? state.tasks
+    : state.tasks.filter((task) => {
+        return !task.isCompleted;
+      });
 
   return (
     // Layout
@@ -50,10 +79,16 @@ export function TodoList() {
       ></input>
       <button onClick={handleAddTaskOnClick}>Add Task</button>
       <ul>
-        {state.tasks.map((task) => (
+        {tasks.map((task) => (
           <TodoItem key={task.id} task={task} dispatch={dispatch} />
         ))}
       </ul>
+      <div>
+        <button onClick={handleOnClickHideShow}>Show / Hide</button> <br />
+        <button onClick={handleOnClickAllCompleted}>Mark all</button>
+        <button onClick={handleOnClickAllPending}>Unmark all</button> <br />
+        <button onClick={handleOnClickDeleteAll}>Delete all</button> <br />
+      </div>
     </div>
   );
 }

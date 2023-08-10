@@ -28,7 +28,7 @@ export function TodoItem({ task, dispatch }) {
   }
 
   return (
-    <>
+    <div>
       {!isEditEnabled ? (
         <li>
           <input
@@ -38,7 +38,7 @@ export function TodoItem({ task, dispatch }) {
           />
           {task.description}
           <button onClick={handleOnClickEdit}>Edit</button>
-          <button onClick={handleOnClickDelete}>X</button>
+          <button onClick={handleOnClickDelete}>X</button> <br />
         </li>
       ) : (
         <li>
@@ -50,6 +50,6 @@ export function TodoItem({ task, dispatch }) {
           <button onClick={handleOnClickSave}>Save</button>
         </li>
       )}
-    </>
+    </div>
   );
 }

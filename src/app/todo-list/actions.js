@@ -39,3 +39,21 @@ export function toggleTask(id) {
     },
   };
 }
+
+export function allCompletedTask() {
+  return {
+    type: ActionType.ALLCOMPLETED_TASK,
+  };
+}
+
+export function allPendingTask() {
+  return {
+    type: ActionType.ALLPENDING_TASK,
+  };
+}
+
+export function deleteAll() {
+  return {
+    type: ActionType.DELETEALL,
+  };
+}
